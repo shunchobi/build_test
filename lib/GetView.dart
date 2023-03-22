@@ -12,9 +12,22 @@ class AwesomeController extends GetxController {
 class GetViewTest extends GetView<DiController> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: Text(controller.num), // just call `controller.something`
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_sharp,
+            size: 30,
+          ),
+        ),
+      ),
+      body: Center(
+        child: Text(controller.num.toString()), // just call `controller.something`
+      ),
     );
   }
 }
